@@ -1,0 +1,4 @@
+docxtpl==0.15.2
+Flask==2.0.2
+Flask_WTF==1.0.0
+WTForms==3.0.0
