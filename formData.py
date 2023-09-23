@@ -31,7 +31,7 @@ class FormData:
 
     def genera_contrato(self):
         os.chdir(sys.path[0])
-        doc = DocxTemplate("Plantilla_contrato.docx")
+        doc = DocxTemplate("./word_docs/Plantilla_contrato.docx")
         context = {}
 
         context["nombre"] = self.nombre
@@ -46,7 +46,7 @@ class FormData:
         context["dormitorios"] = self.dormitorios
 
         doc.render(context)
-        doc.save("Contrato_renderizado.docx")
+        doc.save("./word_docs/Contrato_renderizado.docx")
 
 
 """

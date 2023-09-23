@@ -8,7 +8,7 @@ def datetime_to_dateformat(input_date: datetime, format: str):
     return input_date.strftime(format)
 
 
-def remove_blank_pages(filename="Contrato_renderizado.docx"):
+def remove_blank_pages(filename="./word_docs/Contrato_renderizado.docx"):
     sections_to_remove = []
     doc = Document(filename)
     for i, section in enumerate(doc.sections):
