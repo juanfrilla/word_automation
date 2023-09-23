@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+from utils import remove_blank_pages
 from forms import ContractForm
 from formData import FormData
 
@@ -9,6 +10,7 @@ app.config["SECRET_KEY"] = "supersecretkey"
 @app.route("/hello", methods=["GET"])
 def hello():
     return "Hello"
+
 
 @app.route("/", methods=["GET", "POST"])
 def contract():
@@ -27,6 +29,7 @@ def contract():
             form.fecha_hoy.data,
         )
         output.genera_contrato()
+        remove_blank_pages()
         return "Contrato generado"  # puede que mejore esto y que me lo devuelva en la template
     return render_template("contract.html", form=form)
 
