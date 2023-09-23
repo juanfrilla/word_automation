@@ -6,11 +6,14 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "supersecretkey"
 
 
-# Create name page
+@app.route("/hello", methods=["GET"])
+def hello():
+    return "Hello"
+
 @app.route("/", methods=["GET", "POST"])
 def contract():
     form = ContractForm()
-    if request.method == "POST" and form.validate():
+    if form.validate_on_submit():
         output = FormData(
             form.sexo.data,
             form.dni.data,

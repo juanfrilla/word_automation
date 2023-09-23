@@ -59,7 +59,7 @@
                 <div class="row m-1 justify-content-center">
                     <div class="col-sm-6">
                         {{ form.fecha_hoy.label }} <br>
-                        {{ form.fecha_hoy(size=20, id="fecha_hoy", placeholder="") }}
+                        {{form.fecha_hoy(class='datepicker')}} {{form.hidden_tag()}}
 
                     </div>
                 </div>

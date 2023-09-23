@@ -1,10 +1,10 @@
 import os
 import sys
 from docxtpl import DocxTemplate
+from utils import datetime_to_dateformat
 
 
 class FormData:
-
     def __init__(
         self,
         sexo,
@@ -37,7 +37,7 @@ class FormData:
         context["nombre"] = self.nombre
         context["apellidos"] = self.apellidos
         context["dni"] = self.dni
-        context["fecha_hoy"] = self.fecha_hoy
+        context["fecha_hoy"] = datetime_to_dateformat(self.fecha_hoy, "%d de %B de %Y")
         context["localidad_nacimiento"] = self.localidad_nacimiento
         context["provincia_nacimiento"] = self.provincia_nacimiento
         context["sexo"] = self.sexo
