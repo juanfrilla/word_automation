@@ -1,7 +1,7 @@
 import os
 import sys
 from docxtpl import DocxTemplate
-from utils import datetime_to_dateformat
+from utils import datetime_to_dateformat, remove_blank_pages, find_and_complete_dots
 
 
 class FormData:
@@ -46,14 +46,8 @@ class FormData:
         context["dormitorios"] = self.dormitorios
 
         doc.render(context)
+        doc = remove_blank_pages(doc)
+        #doc = find_and_complete_dots(doc)
         doc.save("./word_docs/Contrato_renderizado.docx")
 
 
-"""
-ToDo
-# mejorar front-end
-# seleccionar la fecha y jugar con el formato fecha.
-# si el apartamento es A,B o C. Carga cosas predeterminadas.
-# mirar como se pone en negrita algunas cosas.
-# Abrir archivo word al final
-"""
